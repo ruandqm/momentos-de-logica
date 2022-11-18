@@ -3,7 +3,7 @@ let modelo
 let ano
 let valor
 let maiorValor = 0
-let menorValor = 0
+let menorValor
 let valorAtual
 
 function coletarDados() {
@@ -15,6 +15,9 @@ function coletarDados() {
 while (qtdCarros < 3) {
     coletarDados()
     valorAtual = valor
+    if (qtdCarros === 0) {
+        menorValor = valorAtual
+    }
     if (valorAtual > maiorValor) {
         maiorValor = valorAtual
     }
