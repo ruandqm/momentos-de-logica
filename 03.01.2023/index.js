@@ -6,31 +6,25 @@ function Convert(romanNumber) {
     const inputNum = romanNumber.split('')
     let outputNum = 0
     let lastIndex = romanNumbers.length
+    let sub
 
-    if (inputNum.includes(''))
-        for (let i = 0; i < inputNum.length; i++) {
-            for (let j = 0; j < romanNumbers.length; j++) {
-                if (j > lastIndex) {
-                    if (inputNum[i] === romanNumbers[j]) {
-                        lastIndex = j
-                        outputNum -= intNumbers[j]
-                    }
+    for (let i = 0; i < inputNum.length; i++) {
+        for (let j = 0; j < romanNumbers.length; j++) {
+            if (inputNum[i] === romanNumbers[j]) {
+                if (j > lastIndex + 1) {
+                    console.log('entrou ' + j + lastIndex)
+                    sub = intNumbers[j] - intNumbers[lastIndex]
+                    outputNum = sub
                 }
-                if (inputNum[i] === romanNumbers[j]) {
-                    if (j > lastIndex) {
-                        let sub = intNumbers[i] - intNumbers[lastIndex]
-                        outputNum = sub
-                        lastIndex = j
-                    }
-                    else {
-                        lastIndex = j
-                        outputNum += intNumbers[j]
-                    }
+                else {
+                    lastIndex = j
+                    outputNum += intNumbers[j]
                 }
             }
         }
+    }
 
     console.log(outputNum)
 }
 
-Convert('V')
+Convert('MCD')
